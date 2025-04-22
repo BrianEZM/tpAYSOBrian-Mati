@@ -1,4 +1,6 @@
 from services.octal.octal_converter import es_octal, octal_a_decimal, octal_a_binario, octal_a_hexadecimal
+from services.hexadecimal.hexadecimal_converter import conver_hexa_octal, conver_hexa_deci, conver_hexa_bin, hexa_a_decimal
+
 
 if __name__ == "__main__":
     print("Bienvenido al Convertidor de sistemas númericos")
@@ -82,9 +84,37 @@ if __name__ == "__main__":
 
         # Si ingresa "16" se inicia la peticion y validacion del numero hexadecimal
         if sistema_convertir == "16":
-            entrada_octal = input("Ingrese un número entero en sistema hexadecimal (o 'salir' para terminar): ").strip()
-            if entrada_octal.lower() == 'salir':
+            entrada_hexa = input("Ingrese un número entero en sistema hexadecimal (o 'salir' para terminar): ").strip()
+            if entrada_hexa.lower() == 'salir':
                 print("Gracias por usar el convertidor!")
                 programa_on = False
 
-        # Aca va la logica/funciones de conversion del sistema HEXADECIMAL a todos los demas
+            entrada_a_entero = hexa_a_decimal(entrada_hexa)
+            print(entrada_a_entero)
+
+            # Se valida que sea un numero octal valido, si lo es, se convierte a los de mas sistemas
+            while True:
+                if entrada_a_entero != False:
+                    decimal = conver_hexa_deci(entrada_hexa)
+                    binario = conver_hexa_bin(conver_hexa_deci(entrada_hexa))
+                    octal = conver_hexa_octal(conver_hexa_deci(entrada_hexa))
+
+                    print("-" * 30)
+                    print(f"Número hexadecimal: {entrada_hexa}")
+                    print(f"  - Decimal:     {decimal}")
+                    print(f"  - Binario:     {binario}")
+                    print(f"  - Octal: {octal}")
+                    print("-" * 30)
+                    break
+                # Si no es un numero hexadecimal valido, se muestran mensajes explicativos
+                else:
+                    print("-" * 30)
+                    print("Error! La entrada no es un número entero hexadecimal válido.")
+                    print("Un número hexadecimal solo puede contener dígitos del 0 al 9 y letras de la 'A' a la 'F'.")
+                    print("-" * 30)
+                    entrada_octal = input(
+                        "Ingrese un número entero en sistema hexadecimal (o 'salir' para terminar): ").strip()
+                    if entrada_octal.lower() == 'salir':
+                        print("Gracias por usar el convertidor!")
+                        programa_on = False
+                        break

@@ -42,4 +42,34 @@ def octal_a_binario(octal_str):
 # Convierte un número octal (string) a hexadecimal (string)
 def octal_a_hexadecimal(octal_str):
     decimal_val = octal_a_decimal(octal_str)
+    if decimal_val == 0:
+        return '0'
+
+    hexadecimal = ''
+    if decimal_val < 0:
+        es_negativo = True
+        decimal_val = -decimal_val
+    else:
+        es_negativo = False
+
+    while decimal_val > 0:
+        residuo = decimal_val % 16
+        condicion = residuo < 10
+        if condicion == True:
+            conversion_residuo = str(residuo)
+            hexadecimal = conversion_residuo + hexadecimal
+        else:
+            valor_ascii_base = ord('A')
+            ajuste = residuo - 10
+            valor_ascii_hex = valor_ascii_base + ajuste
+            caracter_hex = chr(valor_ascii_hex)
+            hexadecimal = caracter_hex + hexadecimal
+        cociente = decimal_val // 16
+        decimal_val = cociente
+
+    return '-' + hexadecimal.upper() if es_negativo else hexadecimal.upper()
+"""
+def octal_a_hexadecimal(octal_str):
+    decimal_val = octal_a_decimal(octal_str)
     return hex(decimal_val)[2:].upper() if decimal_val != 0 else '0'
+"""
