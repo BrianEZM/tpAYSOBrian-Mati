@@ -1,3 +1,11 @@
+# Verifica si una cadena representa un número hexadecimal válido
+def es_hexagonal(numero_str):
+    if not numero_str:
+        return False
+    if numero_str[0] == '-':
+        numero_str = numero_str[1:]
+    return all(c in '0123456789ABCDEF' for c in numero_str)
+
 def hexa_a_decimal(caracter):
     """Convierte un carácter hexadecimal a su valor decimal"""
     if caracter == '0':
@@ -44,7 +52,6 @@ def conver_hexa_bin(decimal_total):
         num_binario = str(residuo) + num_binario
         dividendo = dividendo // 2
     return num_binario
-    # print(f'EL NUMERO DE HEXADECIMAL A BINARIO ES {num_binario}')
 
 
 def conver_hexa_deci(numeroHexa):
@@ -67,8 +74,6 @@ def conver_hexa_octal(decimal_total):
         num_octal = str(residuo) + num_octal
         dividendo = dividendo // 8
     return num_octal
-    # print(f'EL NUMERO DE HEXADECIMAL A OCTAL ES {num_octal}')
-
 
 """
 # Programa principal
