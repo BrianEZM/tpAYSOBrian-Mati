@@ -1,4 +1,7 @@
-# Verifica si una cadena representa un número octal válido
+"""
+Verifica si una cadena representa un número octal válido
+Recibe un String ingresado por el usuario y verifica que solamente tenga los caracteres validos
+"""
 def es_octal(numero_str):
     if not numero_str:
         return False
@@ -7,7 +10,11 @@ def es_octal(numero_str):
     return all(c in '01234567' for c in numero_str)
 
 
-# Convierte un número octal (string) a decimal (entero)
+"""
+Multiplica cada dígito octal por la potencia de 8 correspondiente 
+a su posición (empezando desde la derecha con la 
+potencia 0) y luego suma los resultados.
+"""
 def octal_a_decimal(octal_str):
     decimal = 0
     potencia = 0
@@ -24,7 +31,10 @@ def octal_a_decimal(octal_str):
     return -decimal if es_negativo else decimal
 
 
-# Convierte un número octal (string) a binario (string)
+"""
+Cada dígito octal se reemplaza por su equivalente de 3 bits en binario, 
+concatenando los equivalentes
+"""
 def octal_a_binario(octal_str):
     tabla_octal_bin = {
         '0': '000', '1': '001', '2': '010', '3': '011',
@@ -39,7 +49,14 @@ def octal_a_binario(octal_str):
     return binario.lstrip('0') if len(binario) > (1 if binario.startswith('-') else 0) else '0'
 
 
-# Convierte un número octal (string) a hexadecimal (string)
+"""
+Octal a Decimal: Multiplica cada dígito octal por la potencia de 8 
+correspondiente a su posición (empezando desde la derecha con la potencia 0) y suma los resultados.
+
+Decimal a Hexadecimal: Divide sucesivamente el número decimal por 16 y anota los restos en orden inverso. 
+Los restos que sean mayores o iguales a 10 se reemplazan por 
+sus equivalentes hexadecimales (A=10, B=11, C=12, D=13, E=14, F=15).
+"""
 def octal_a_hexadecimal(octal_str):
     decimal_val = octal_a_decimal(octal_str)
     if decimal_val == 0:
