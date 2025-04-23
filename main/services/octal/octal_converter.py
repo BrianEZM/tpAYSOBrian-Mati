@@ -68,8 +68,3 @@ def octal_a_hexadecimal(octal_str):
         decimal_val = cociente
 
     return '-' + hexadecimal.upper() if es_negativo else hexadecimal.upper()
-"""
-def octal_a_hexadecimal(octal_str):
-    decimal_val = octal_a_decimal(octal_str)
-    return hex(decimal_val)[2:].upper() if decimal_val != 0 else '0'
-"""
