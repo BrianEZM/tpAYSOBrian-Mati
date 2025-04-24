@@ -64,15 +64,6 @@ while programa_on:
                     programa_on = False
                     break
 
-    # Si ingresa "2" se inicia la peticion y validacion del numero binario
-    if sistema_convertir == "2":
-        entrada_binaria = input("Ingrese un número entero en sistema binario (o 'salir' para terminar): ").strip()
-        if entrada_binaria.lower() == 'salir':
-            print("Gracias por usar el convertidor!")
-            programa_on = False
-
-    # Aca va la logica/funciones de conversion del sistema BINARIO a todos los demas
-
     # Si ingresa "10" se inicia la peticion y validacion del numero decimal
     if sistema_convertir == "10":
         entrada_decimal = input("Ingrese un número entero en sistema decimal (o 'salir' para terminar): ").strip()
@@ -140,3 +131,12 @@ while programa_on:
                     print("Gracias por usar el convertidor!")
                     programa_on = False
                     break
+
+    # Si ingresa "2" se inicia la peticion y validacion del numero binario
+    if sistema_convertir == "2":
+        entrada_binaria = input("Ingrese un número entero en sistema binario (o 'salir' para terminar): ").strip()
+        if entrada_binaria.lower() == 'salir':
+            print("Gracias por usar el convertidor!")
+            programa_on = False
+
+    # Aca va la logica/funciones de conversion del sistema BINARIO a todos los demas
