@@ -79,7 +79,7 @@ while programa_on:
                 hexadecimal = decimal_a_hexadecimal(int(entrada_decimal))
 
                 print("-" * 30)
-                print(f"Número octal: {entrada_decimal}")
+                print(f"Número decimal: {entrada_decimal}")
                 print(f"  - Octal:     {octal}")
                 print(f"  - Binario:     {binario}")
                 print(f"  - Hexadecimal: {hexadecimal}")
