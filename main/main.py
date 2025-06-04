@@ -137,6 +137,7 @@ while programa_on:
 
     # Aca va la logica/funciones de conversion del sistema BINARIO a todos los demas
 
+"""
     # Si ingresa "2" se inicia la peticion y validacion del numero binario
     if sistema_convertir == "2":
         entrada_binaria = input("Ingrese un número entero en sistema binario (o 'salir' para terminar): ").strip()
@@ -170,3 +171,4 @@ while programa_on:
                     print("Gracias por usar el convertidor!")
                     programa_on = False
                     break
+"""
