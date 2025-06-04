@@ -2,6 +2,8 @@ from services.octal.octal_converter import es_octal, octal_a_decimal, octal_a_bi
 from services.hexadecimal.hexadecimal_converter import conver_hexa_octal, conver_hexa_deci, conver_hexa_bin, \
     es_hexagonal
 from services.decimal.decimal_converter import es_decimal, decimal_a_octal, decimal_a_binario, decimal_a_hexadecimal
+from services.binario.binario_converter import es_binario, binario_a_octal, binario_a_decimal, binario_a_hexadecimal
+
 
 print("Bienvenido al Convertidor de sistemas númericos")
 print("-" * 30)
@@ -132,6 +134,9 @@ while programa_on:
                     programa_on = False
                     break
 
+
+    # Aca va la logica/funciones de conversion del sistema BINARIO a todos los demas
+
     # Si ingresa "2" se inicia la peticion y validacion del numero binario
     if sistema_convertir == "2":
         entrada_binaria = input("Ingrese un número entero en sistema binario (o 'salir' para terminar): ").strip()
@@ -139,4 +144,29 @@ while programa_on:
             print("Gracias por usar el convertidor!")
             programa_on = False
 
-    # Aca va la logica/funciones de conversion del sistema BINARIO a todos los demas
+        # Se valida que sea un numero binario valido, si lo es, se convierte a los de mas sistemas
+        while True:
+            if es_binario(entrada_binaria.upper()):
+                octal = binario_a_octal(entrada_binaria)
+                decimal = binario_a_decimal(entrada_binaria)
+                hexadecimal = binario_a_hexadecimal(entrada_binaria)
+
+                print("-" * 30)
+                print(f"Número binario: {entrada_binaria}")
+                print(f"  - Octal:     {octal}")
+                print(f"  - Decimal:     {decimal}")
+                print(f"  - Hexadecimal: {hexadecimal}")
+                print("-" * 30)
+                break
+            # Si no es un numero binario valido, se muestran mensajes explicativos
+            else:
+                print("-" * 30)
+                print("Error! La entrada no es un número entero binario válido.")
+                print("Un número binario solo puede contener como dígitos el 0 o el 1")
+                print("-" * 30)
+                entrada_binaria = input(
+                    "Ingrese un número entero en sistema binario (o 'salir' para terminar): ").strip()
+                if entrada_binaria.lower() == 'salir':
+                    print("Gracias por usar el convertidor!")
+                    programa_on = False
+                    break
